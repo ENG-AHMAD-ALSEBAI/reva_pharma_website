@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: reva-pharma
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn reva_pharma_website.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: reva_pharma_website.settings
+      - key: PYTHON_VERSION
+        value: 3.11
